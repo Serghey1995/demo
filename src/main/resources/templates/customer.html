@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <a th:href="@{/customers/}">Back to customer list</a>
+</div>
+<div>
+    <p>ID: <span th:text="${customer.id}">none</span>.</p>
+    <p>First name: <span th:text="${customer.firstName}">none</span>.</p>
+    <p>Last name: <span th:text="${customer.lastName}">none</span>.</p>
+    <p>Email: <span th:text="${customer.email}">none</span>.</p>
+    <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a>
+</div>
+</body>
+</html>

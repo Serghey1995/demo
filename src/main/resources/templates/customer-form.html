@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .error {color: red;}
+    </style>
+</head>
+<body>
+<h1 th:text="${customer.id == null} ? 'Create a customer' : 'Edit a customer:'" /><h1/>
+<form action="#" th:action="@{/customers}" th:object="${customer}" method="post">
+<p>Id: <input type="text"  th:field="*{id}" /></p>
+    <p>First name: <input type="text"  th:field="*{firstName}" /></p>
+    <span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name error</span>
+    <p>Last name: <input type="text"  th:field="*{lastName}" /></p>
+    <span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name error</span>
+    <p>Email: <input type="text"   th:field="*{email}" /></p>
+    <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</span>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

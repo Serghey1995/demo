@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<form action="#" th:action="@{/customers/search}" method="get">
+<p >
+    <input type="search" name="query" >
+    <input type="submit" value="Найти">
+</p>
+</form>
+
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each ="customer : ${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.firstName + ' ' + customer.lastName}"></td>
+            <td th:text="${customer.email}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
